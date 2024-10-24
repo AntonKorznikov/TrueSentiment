@@ -14,12 +14,7 @@ prereqs:
 
 # Build executables
 build:
-	@echo "Building preprocessing executable..."
-	python $(PREPROCESS_DIR)/preprocessing.py
-	@echo "Building processing executable..."
-	python $(PROCESS_DIR)/processing.py
-	@echo "Building postprocessing executable..."
-	python $(POSTPROCESS_DIR)/postprocessing.py
+	@echo "Build step can be customized based on the project needs."
 
 # Run tests
 test:
@@ -30,9 +25,6 @@ test:
 	@echo "Running postprocessing tests..."
 	python -m unittest $(POSTPROCESS_DIR)/tests/test_postprocessing.py
 
-# Build Docker image
-docker:
-	docker build -t sentimentclassifier:latest .
 
 run_all:
 	@echo "Running preprocessing..."
