@@ -1,8 +1,6 @@
-# Makefile
-
 .PHONY: prereqs build test docker
 
-# Define directories
+
 PREPROCESS_DIR=preprocessing
 PROCESS_DIR=processing
 POSTPROCESS_DIR=postprocessing
