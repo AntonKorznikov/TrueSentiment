@@ -1,5 +1,3 @@
-# processing.py
-
 import os
 import json
 from transformers import pipeline
@@ -10,17 +8,28 @@ OUTPUT_RAW_DIR = 'examples/output_raw'
 def process():
     if not os.path.exists(OUTPUT_RAW_DIR):
         os.makedirs(OUTPUT_RAW_DIR)
-    # classifier = pipeline('sentiment-analysis')
+
+    classifier = pipeline('sentiment-analysis')
+
+    all_results = []  # List to hold results for all sentences
+
     for filename in os.listdir(INPUT_DIR):
         if filename.endswith('.txt'):
             with open(os.path.join(INPUT_DIR, filename), 'r') as f:
-                text = f.read()
-            print(1)
-            # result = classifier(text)[0]
-            result = {'label': 'POSITIVE', 'score': 0.9998}
-            print(2)
-            with open(os.path.join(OUTPUT_RAW_DIR, f"{filename[:-4]}.json"), 'w') as f:
-                json.dump(result, f)
+                sentences = f.readlines()
+                
+            # Process each sentence in the file
+            for sentence in sentences:
+                sentence = sentence.strip()  # Remove leading/trailing whitespace
+                if sentence:
+                    result = classifier(sentence)[0]
+                    all_results.append(result)
+
+            # Write all results to a single output file
+            output_filename = f"{filename[:-4]}.json"
+            with open(os.path.join(OUTPUT_RAW_DIR, output_filename), 'w') as out_file:
+                json.dump(all_results, out_file)
+
     print("Processing completed.")
 
 if __name__ == "__main__":
