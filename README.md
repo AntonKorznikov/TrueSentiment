@@ -44,7 +44,7 @@ make test
 
 1. **Build Docker Image**
 ```bash
-docker build -t sentimentclassifier:latest
+docker build -t sentimentclassifier:latest .
 ```
 
 2. **Run Docker Container**
