@@ -32,8 +32,9 @@
 make prereqs
 ```
 2. **Build Executables**
-bash
-    make build
+```bash
+make build
+```
 
 3. **Run Tests**
 ```bash
