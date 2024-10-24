@@ -12,9 +12,7 @@
   - [Using Docker](#using-docker)
 - [Examples](#examples)
 - [Testing](#testing)
-- [Continuous Integration](#continuous-integration)
 - [Project Structure](#project-structure)
-- [License](#license)
 
 ## Installation
 
@@ -45,11 +43,11 @@ bash
 
 1. **Build Docker Image**
 bash
-    docker build -t sentimentclassifier:latest .
+    docker build -t sentimentclassifier:latest
 
 2. **Run Docker Container**
 bash
-    docker run -v (pwd)/examples/output:/output sentimentclassifier:latest
+    docker run -v $(pwd)/examples/input_raw:/input_raw -v $(pwd)/examples/output:/output sentimentclassifier:latest
 
 ## Examples
 
@@ -62,15 +60,10 @@ bash
   make test
 
 
-## Continuous Integration
-
-The project uses GitHub Actions for continuous integration. Every commit triggers the workflow to build and test the project.
-
 ## Project Structure
 
 - `preprocessing/`: Contains scripts and tests for data preprocessing.
 - `processing/`: Contains scripts and tests for running the sentiment analysis model.
 - `postprocessing/`: Contains scripts and tests for processing the model's output.
 - `examples/`: Contains example input and output files.
-- `.github/workflows/`: Contains GitHub Actions workflow configurations.
 - `scripts/`: Utility scripts for running the entire pipeline.
