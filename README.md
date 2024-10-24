@@ -46,8 +46,9 @@ bash
     docker build -t sentimentclassifier:latest
 
 2. **Run Docker Container**
-bash
-    docker run -v $(pwd)/examples/input_raw:/input_raw -v $(pwd)/examples/output:/output sentimentclassifier:latest
+```bash
+docker run -v $(pwd)/examples/input_raw:/input_raw -v $(pwd)/examples/output:/output sentimentclassifier:latest
+```
 
 ## Examples
 
