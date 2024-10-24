@@ -33,3 +33,12 @@ test:
 # Build Docker image
 docker:
 	docker build -t sentimentclassifier:latest .
+
+run_all:
+	@echo "Running preprocessing..."
+	python preprocessing/preprocessing.py
+	@echo "Running processing..."
+	python processing/processing.py
+	@echo "Running postprocessing..."
+	python postprocessing/postprocessing.py
+	@echo "All steps completed."
