@@ -28,22 +28,23 @@
 ### Using Makefile
 
 1. **Install Dependencies**
-bash 
-    make prereqs
-
+```bash
+make prereqs
+```
 2. **Build Executables**
 bash
     make build
 
 3. **Run Tests**
-bash
-    make test
-
+```bash
+make test
+```
 ### Using Docker
 
 1. **Build Docker Image**
-bash
-    docker build -t sentimentclassifier:latest
+```bash
+docker build -t sentimentclassifier:latest
+```
 
 2. **Run Docker Container**
 ```bash
@@ -57,9 +58,9 @@ Sample input files are provided in the `examples/input_raw/` directory. After ru
 ## Testing
 
 Run all tests using the Makefile:
-bash
-  make test
-
+```bash
+make test
+```
 
 ## Project Structure
 
